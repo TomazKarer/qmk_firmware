@@ -41,3 +41,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_NUM 12
 
 #define SPLIT_USB_DETECT
+
+#define SELECT_SOFT_SERIAL_SPEED 5
