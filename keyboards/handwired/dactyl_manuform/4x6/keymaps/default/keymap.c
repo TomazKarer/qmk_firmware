@@ -19,13 +19,32 @@
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 
+enum custom_keycodes {
+	SUMNIK_S = SAFE_RANGE,
+	};
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case SUMNIK_S:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING("QMK is the best thing ever!");
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    }
+    return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base (qwerty)
      * +-----------------------------------------+                             +-----------------------------------------+
      * | ESC  |   q  |   w  |   e  |   r  |   t  |                             |   y  |   u  |   i  |   o  |   p  | BSPC |
      * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
        | TAB  |   a  |   s  |   d  |   f  |   g  |                             |   h  |   j  |   k  |   l  |  ;:  |  "'  |
-     * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
+     * |------+------+-----+------+------+------|                             |------+------+------+------+------+------|
      * | SHFT |   z  |   x  |   c  |   v  |   b  |                             |   n  |   m  |  ,<  |  .>  |  /?  | SHFT |
      * +------+------+------+------+-------------+                             +-------------+------+------+------+------+
      *               |  [{  |   ]} |                                                         |  -_  |  =+  |
@@ -99,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RAISE] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,  
         _______, _______, _______ , _______, _______, _______,             KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, _______,KC_BSLS  ,
-        _______, _______, _______, _______, _______, _______,             _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,             _______, SUMNIK_S, _______, _______, _______, _______,
                           _______, _______,                                                 _______, _______,
                                             _______, _______,             _______, _______,
                                             _______, _______,             _______, _______,
