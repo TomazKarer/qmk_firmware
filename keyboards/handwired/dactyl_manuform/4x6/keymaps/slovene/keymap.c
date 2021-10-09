@@ -19,10 +19,11 @@
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 
+
+//#define keymap_slovenian.h
+
 enum custom_keycodes {
 	SUMNIK_S = SAFE_RANGE,
-	SUMNIK_C,
-	SUMNIK_Z
 	};
 
 
@@ -30,20 +31,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case SUMNIK_S:
         if (record->event.pressed) {
-	    SEND_STRING(SS_DOWN(X_RALT) SS_DOWN(X_LSHIFT) "6" SS_UP(X_RALT) SS_UP(X_LSHIFT) "s");
+            // when keycode QMKBEST is pressed
+            //SEND_STRING(RSA(KC_S));
+	    //RSA("6");
         } else {
-        }
-        break;
-    case SUMNIK_C:
-        if (record->event.pressed) {
-	    SEND_STRING(SS_DOWN(X_RALT) SS_DOWN(X_LSHIFT) "6" SS_UP(X_RALT) SS_UP(X_LSHIFT) "c");
-        } else {
-        }
-        break;
-    case SUMNIK_Z:
-        if (record->event.pressed) {
-	    SEND_STRING(SS_DOWN(X_RALT) SS_DOWN(X_LSHIFT) "6" SS_UP(X_RALT) SS_UP(X_LSHIFT) "z");
-        } else {
+            // when keycode QMKBEST is released
         }
         break;
     }
@@ -129,8 +121,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_RAISE] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,             KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,  
-        _______, _______, SUMNIK_S , _______, _______, _______,             KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, _______,KC_BSLS  ,
-        _______, SUMNIK_Z, _______,SUMNIK_C , _______, _______,             _______, _______, _______, _______, _______, _______,
+        _______, _______, _______ , _______, _______, _______,             KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, _______,KC_BSLS  ,
+        _______, _______, _______, _______, _______, SUMNIK_S,             _______, _______, _______, _______, _______, _______,
                           _______, _______,                                                 _______, _______,
                                             _______, _______,             _______, _______,
                                             _______, _______,             _______, _______,
