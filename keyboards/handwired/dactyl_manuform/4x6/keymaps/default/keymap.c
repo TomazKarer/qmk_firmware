@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *               +-------------+-------------+                             +-------------+-------------+
      *                             |SPACE | RAISE|                              | LOWER | ENTER|
      *                             |------+------|                             |------+------|
-     *                             | WIN  | DEL  |                             | ALT  | CTRL |
+     *                             | CTRL  | DEL  |                             | WIN  | ALT |
      *                             +-------------+                             +-------------+
      *                                           +-------------+ +-------------+
      *                                           | PgDwn| PgUp | | HOME | END  |
@@ -75,8 +75,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                           KC_LBRC, KC_RBRC,                                                KC_MINS, KC_EQL,
                                             KC_SPC,  RAISE,              LOWER,    KC_ENT,
-                                            KC_PGUP,  KC_DELETE,         KC_LALT,  KC_HOME,
-                                            KC_PGDOWN,KC_LGUI,           KC_LCTRL,  KC_END
+                                            KC_PGUP,  KC_DELETE,         KC_LGUI,  KC_HOME,
+                                            KC_PGDOWN,KC_LCTRL,           KC_LALT,  KC_END
     ),
 
 
@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * +-----------------------------------------+                             +-----------------------------------------+
      * |   ~  |   !  |   @  |   #  |   $  |   %  |                             |  ^   |   &  |   *  |  (   |   )  |      |
      * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
-     * |      |      |      |      |      |      |                             | Left | Down | Up   | Right|      |  |\  |
+     * |      |      |   š  |      |      |      |                             | left | down | up   | right|      |  |\  |
      * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
-     * |      |      |      |      |      |      |                             |      |      |      |      |      |      |
+     * |      |  ž   |      |  č   |      |      |                             |      |      |      |      |      |      |
      * +------+------+------+------+-------------+                             +-------------+------+------+------+------+
      *               |      |      |                                                         |      |      |
      *               +-------------+-------------+                             +-------------+-------------+
@@ -136,8 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______,             _______, _______,
                                             _______, _______,             _______, _______
     )
-};
-
+}
 void persistent_default_layer_set(uint16_t default_layer) {
     eeconfig_update_default_layer(default_layer);
     default_layer_set(default_layer);
