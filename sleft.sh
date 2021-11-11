@@ -1,1 +1,1 @@
-make handwired/dactyl_manuform/4x6:slovene:avrdude-split-left
+make handwired/dactyl_manuform/4x6:default:avrdude-split-left
