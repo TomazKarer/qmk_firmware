@@ -1,0 +1,1 @@
+/home/tomazk/development/home/keyboards/qmk_myfork/users/manna-harbour_miryoku/manna-harbour_miryoku.c
